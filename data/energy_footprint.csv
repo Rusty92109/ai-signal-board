@@ -1,0 +1,2 @@
+date,value,unit,source,notes
+2025-10-20,,kWh per run,Corporate ESG / MLCO2 estimates,Energy per large-model training run (reported or estimated).

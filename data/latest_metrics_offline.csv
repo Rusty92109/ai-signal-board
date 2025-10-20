@@ -1,0 +1,7 @@
+metric,value,unit,source,collected_from,timestamp
+Governance Index,nan,policies,OECD.AI Policy Observatory,offline-csv,2025-10-20
+Openness Score,nan,%,Open LLM Leaderboard / model hubs,offline-csv,2025-10-20
+Incident Log,nan,incidents YTD,AI Incident Database (AIID),offline-csv,2025-10-20
+Militarization Tracker,nan,platforms,SIPRI reports,offline-csv,2025-10-20
+Energy Footprint,nan,kWh per large run,Corporate ESG / MLCO2 estimates,offline-csv,2025-10-20
+Public Trust Index,nan,index/score,Ipsos / Pew,offline-csv,2025-10-20

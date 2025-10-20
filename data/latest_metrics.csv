@@ -1,0 +1,4 @@
+metric,value,unit,source,collected_from,timestamp
+Governance Index,,policies,OECD.AI (manual),manual,2025-10-20
+Openness Score,,%,Open LLM Leaderboard (manual),read_html failed: ImportError,2025-10-20
+Incident Log,0,incidents YTD,AI Incident Database,fallback | AIID API returned non-JSON/blocked; see data/debug_aiid_response.txt,2025-10-20

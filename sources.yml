@@ -1,0 +1,28 @@
+metrics:
+  governance_index:
+    source: "https://oecd.ai/en/policies"
+    type: "policy_count"
+    keywords: ["human oversight", "human-in-the-loop", "rollback", "accountability"]
+    update: "monthly"
+  openness_score:
+    source: "https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard"
+    type: "model_eval"
+    update: "weekly"
+  incident_log:
+    source: "https://incidentdatabase.ai/"
+    type: "incident_count"
+    filter: "impact:material"
+    update: "weekly"
+  militarization_tracker:
+    source: "https://sipri.org/research/armament/autonomous-weapons"
+    type: "platform_count"
+    update: "quarterly"
+  energy_footprint:
+    source: "https://mlco2.github.io/impact/"
+    type: "estimate"
+    unit: "kWh per large training run"
+    update: "quarterly"
+  public_trust:
+    source: "https://www.ipsos.com/en/global-views-ai-2024"
+    type: "survey"
+    update: "annual"
