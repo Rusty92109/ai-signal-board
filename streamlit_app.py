@@ -83,12 +83,25 @@ def render_kpis(df: pd.DataFrame):
 # ---------------------- UI ----------------------
 st.set_page_config(page_title=APP_TITLE, page_icon="📡", layout="wide")
 
+from streamlit.runtime.scriptrunner import add_script_run_ctx
+from streamlit_autorefresh import st_autorefresh
+
+# Auto-refresh
+if 'auto' in locals() and 'interval' in locals():
+    try:
+        if auto:
+            st_autorefresh(interval=int(interval*1000), key='auto_refresh')
+    except Exception:
+        pass
+
 st.title(APP_TITLE)
 st.caption(TAGLINE)
 st.markdown("---")
 
 with st.sidebar:
     st.header("Data Controls")
+    auto = st.toggle("Auto-refresh", value=True, help="Refresh the dashboard automatically.")
+    interval = st.number_input("Refresh every (seconds)", min_value=10, max_value=3600, value=60, step=10)
     source_choice = st.radio("Data source", ["Repo CSV", "Google Sheets / CSV URL"], horizontal=False)
     url_input = ""
     if source_choice == "Google Sheets / CSV URL":
@@ -96,8 +109,12 @@ with st.sidebar:
     show_debug = st.toggle("Show debug logs", value=False)
 
 # Load data
-if source_choice == "Google Sheets / CSV URL" and url_input:
-    csv_url = normalize_sheets_url(url_input)
+csv_url = None
+if source_choice == "Google Sheets / CSV URL":
+    url_val = url_input or SHEETS_CSV_URL
+    if url_val:
+        csv_url = normalize_sheets_url(url_val)
+if csv_url:
     df = read_csv_url(csv_url)
     if show_debug:
         st.caption(f"Source: {csv_url}")
